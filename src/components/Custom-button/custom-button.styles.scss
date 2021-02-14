@@ -1,0 +1,31 @@
+.custom-button{
+  height: 60px;
+  min-width: 150px;
+  width: auto;
+  border-radius: 0;
+  letter-spacing: 0.5px;
+  color: white;
+  background: black;
+  font-size: 16px;
+  font-family: "Andale Mono";
+  font-weight: bolder;
+  line-height: 50px;
+  border: none;
+  padding: 0 35px 0 35px;
+  margin: 0 20px;
+  &:hover{
+    border: 1px solid black;
+    background: white;
+    color: black;
+    cursor: pointer;
+  }
+  &.inverted{
+    color: black;
+    background: white;
+    &:hover{
+      color: white;
+      background: black;
+    }
+  }
+
+}
