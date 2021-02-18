@@ -8,6 +8,8 @@ import {Route, Switch, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import {auth, creatUserProfile} from "./firebase/firebase.utils";
 import {setCurrentUser} from "./redux/user/user.actions";
+import {selectCurrentUser} from "./redux/user/user.selectors";
+import CheckOut from "./Pages/Checkout/CheckOut.component";
 
 class App extends React.Component {
 
@@ -46,6 +48,8 @@ class App extends React.Component {
             <Header/>
             <Switch>
                 <Route exact path="/" component={HomePage}/>
+                <Route exact path="/checkout" component={CheckOut}/>
+
                 <Route path="/shop" component={ShopPage}/>
                 <Route exact
                        path="/SignIn"
@@ -63,8 +67,8 @@ class App extends React.Component {
 
 }
 
-const mapStateToProps = ({user}) => ({
-    currentUser: user.currentUser
+const mapStateToProps = (state) => ({
+    currentUser: selectCurrentUser(state)
 })
 const mapDispatchToProps = dispatch => ({
         setCurrentUser: user => dispatch(setCurrentUser(user))

@@ -7,7 +7,8 @@ import CartIcon from "../Cart-Icon/CartIcon.component";
 
 import {connect} from "react-redux";
 import CartDropDown from "../Cart-Dropdown/CartDropDown";
-
+import {selectCurrentUser} from "../../redux/user/user.selectors";
+import {selectCartHidden} from "../../redux/cart/cart.selectors";
 
 const Header = ({currentUser,hidden}) => (
     <div className="header">
@@ -30,9 +31,9 @@ const Header = ({currentUser,hidden}) => (
         }
     </div>
 )
-const mapStateToProps = ({user:{currentUser},cart:{hidden}}) => ({
-        currentUser,
-        hidden
+const mapStateToProps = (state) => ({
+        currentUser:selectCurrentUser(state),
+        hidden:selectCartHidden(state)
     }
 )
 
